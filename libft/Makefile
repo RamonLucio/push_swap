@@ -5,42 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/15 18:59:01 by rlucio-l          #+#    #+#              #
-#    Updated: 2022/03/16 18:09:21 by rlucio-l         ###   ########.fr        #
+#    Created: 2022/03/16 17:36:55 by rlucio-l          #+#    #+#              #
+#    Updated: 2022/03/16 17:41:28 by rlucio-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	push_swap
+NAME =	libft.a
 
-SRC =	main.c
+SRC =	ft_atoi.c
 
-OBJ =	$(SRC:.c=.o)
+OBJ =	${SRC:.c=.o}
 
 CC =	gcc
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS +=	-Wall -Wextra -Werror
 
-.c.o :
-		$(CC) ${CFLAGS} -c $< -o ${<:.c=.o}
+.c.o:
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
+${NAME}: ${OBJ}
+		ar rcs ${NAME} ${OBJ}
 
-$(NAME): $(LIBFT) $(OBJ)
-		gcc -o $(NAME) $(OBJ) $(LIBFT)
-
-$(LIBFT):
-		make -C $(LIBFT_DIR)
-
-all:	$(NAME)
+all:	${NAME}
 
 clean:
-		make -C $(LIBFT_DIR) clean
-		rm -f $(OBJ)
+		rm -f ${OBJ}
 
 fclean: clean
-		make -C $(LIBFT_DIR) fclean
-		rm -f $(NAME)
+		rm -f ${NAME}
 
-re:		fclean all
+re: 	fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re
