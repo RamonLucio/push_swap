@@ -6,13 +6,13 @@
 #    By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/16 17:36:55 by rlucio-l          #+#    #+#              #
-#    Updated: 2022/03/16 17:41:28 by rlucio-l         ###   ########.fr        #
+#    Updated: 2022/03/17 13:27:29 by rlucio-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
-SRC =	ft_atoi.c
+SRC =	ft_atoi.c ft_strncmp.c
 
 OBJ =	${SRC:.c=.o}
 
