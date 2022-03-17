@@ -6,13 +6,13 @@
 #    By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 18:59:01 by rlucio-l          #+#    #+#              #
-#    Updated: 2022/03/16 18:09:21 by rlucio-l         ###   ########.fr        #
+#    Updated: 2022/03/17 18:51:41 by rlucio-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	push_swap
 
-SRC =	main.c
+SRC =	main.c parsing.c
 
 OBJ =	$(SRC:.c=.o)
 
