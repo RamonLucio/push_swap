@@ -6,12 +6,11 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:50:17 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/03/17 18:52:06 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:09:41 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static int	*create_array(int argc, char *argv[])
 {
