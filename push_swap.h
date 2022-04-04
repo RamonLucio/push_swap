@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:47:46 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/03/17 22:59:39 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:39:39 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 # include "./libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
-# define UNSPECIFIED_ARG 1
-# define INVALID_ARG 1
-# define DUPLICATE_ARG 1
-# define PARSING_ERROR 1
 
 typedef struct s_node
 {
@@ -28,6 +24,7 @@ typedef struct s_node
 }				t_node;
 
 t_node	*create_stack(int argc, char *argv[]);
-int		parse_arguments(int argc, char *argv[]);
+int		are_the_args_invalid(int argc, char *argv[]);
+int		are_there_duplicates(int argc, char *argv[]);
 
 #endif

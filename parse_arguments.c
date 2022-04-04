@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:50:17 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/03/17 22:58:41 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:20:06 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	*create_array(int argc, char *argv[])
 	return (array);
 }
 
-static int	are_there_duplicates(int argc, char *argv[])
+int	are_there_duplicates(int argc, char *argv[])
 {
 	int	*array;
 	int	i;
@@ -48,7 +48,7 @@ static int	are_there_duplicates(int argc, char *argv[])
 			if (array[i] == array[j])
 			{
 				free(array);
-				return (DUPLICATE_ARG);
+				return (1);
 			}
 			j++;
 		}
@@ -58,21 +58,16 @@ static int	are_there_duplicates(int argc, char *argv[])
 	return (0);
 }
 
-int	parse_arguments(int argc, char *argv[])
+int	are_the_args_invalid(int argc, char *argv[])
 {
 	int	index;
 
-	if (argc == 1)
-		return (UNSPECIFIED_ARG);
 	index = argc - 1;
 	while (argv[index] != argv[0])
 	{
-		if (ft_atoi(argv[index]) == INVALID_ARG
-			&& ft_strncmp(argv[index], "1", 2) != 0)
-			return (INVALID_ARG);
+		if (ft_atoi(argv[index]) == 1 && ft_strncmp(argv[index], "1", 2) != 0)
+			return (1);
 		index--;
 	}
-	if (are_there_duplicates(argc, argv))
-		return (DUPLICATE_ARG);
 	return (0);
 }
