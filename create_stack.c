@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:57:56 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/03/17 23:00:50 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/04/04 21:58:36 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ static void	push(int number, t_node *head)
 
 t_node	*create_stack(int argc, char *argv[])
 {
-	t_node	*head_of_stack_a;
+	t_node	*stack_head;
 	int		index;
 
-	head_of_stack_a = malloc(sizeof(t_node));
-	if (head_of_stack_a == NULL)
+	stack_head = malloc(sizeof(t_node));
+	if (stack_head == NULL)
 		exit(EXIT_FAILURE);
-	head_of_stack_a->next = NULL;
-	head_of_stack_a->previous = NULL;
+	stack_head->next = NULL;
+	stack_head->previous = NULL;
 	index = argc - 1;
 	while (argv[index] != argv[0])
 	{
-		push(ft_atoi(argv[index]), head_of_stack_a);
+		push(ft_atoi(argv[index]), stack_head);
 		index--;
 	}
-	return (head_of_stack_a);
+	return (stack_head);
 }
