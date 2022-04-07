@@ -6,13 +6,13 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:57:56 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/04/04 21:58:36 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/04/07 20:02:43 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(int number, t_node *head)
+static void	push_to_stack(int number, t_node *head)
 {
 	t_node	*new_node;
 
@@ -47,7 +47,7 @@ t_node	*create_stack(int argc, char *argv[])
 	index = argc - 1;
 	while (argv[index] != argv[0])
 	{
-		push(ft_atoi(argv[index]), stack_head);
+		push_to_stack(ft_atoi(argv[index]), stack_head);
 		index--;
 	}
 	return (stack_head);
