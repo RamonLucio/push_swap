@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:57:56 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/04/07 20:02:43 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/05/27 00:11:40 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	push_to_stack(int number, t_node *head)
 	if (new_node == NULL)
 		exit(EXIT_FAILURE);
 	new_node->element = number;
+	new_node->cardinality = -1;
 	if (head->next == NULL)
 	{
 		head->previous = new_node;
