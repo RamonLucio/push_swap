@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:32:42 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/03/17 20:08:59 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:09:21 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while ((*str == ' ') || (*str >= '\t' && *str <= '\r'))
 		str++;
+	if (ft_strncmp(str, "-2147483648", 12) == 0)
+		return (INT_MIN);
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -42,7 +44,7 @@ int	ft_atoi(const char *str)
 		if (*str < '0' || *str > '9')
 			return (NOT_INTEGER);
 		result = (result * 10) + (*str - '0');
-		if ((result < INT_MIN || result > INT_MAX) && result != 2147483648)
+		if (result > INT_MAX)
 			return (INTEGER_OVERFLOW);
 		str++;
 	}
