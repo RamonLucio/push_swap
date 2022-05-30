@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:50:17 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/04/04 20:20:06 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:06:09 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	*create_array(int argc, char *argv[])
 	return (array);
 }
 
-int	are_there_duplicates(int argc, char *argv[])
+static int	are_there_duplicates(int argc, char *argv[])
 {
 	int	*array;
 	int	i;
@@ -58,7 +58,7 @@ int	are_there_duplicates(int argc, char *argv[])
 	return (0);
 }
 
-int	are_the_args_invalid(int argc, char *argv[])
+static int	are_the_args_integers(int argc, char *argv[])
 {
 	int	index;
 
@@ -68,6 +68,18 @@ int	are_the_args_invalid(int argc, char *argv[])
 		if (ft_atoi(argv[index]) == 1 && ft_strncmp(argv[index], "1", 2) != 0)
 			return (1);
 		index--;
+	}
+	return (0);
+}
+
+int	are_there_invalid_arguments(int argc, char *argv[])
+{
+	if (argc == 1)
+		return (1);
+	if (are_the_args_integers(argc, argv) || are_there_duplicates(argc, argv))
+	{
+		write(STDERR_FILENO, "Error\n", 7);
+		return (1);
 	}
 	return (0);
 }
