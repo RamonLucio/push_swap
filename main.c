@@ -6,34 +6,33 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:06:59 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/04/06 18:15:40 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/05/31 00:58:22 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h> // NÃO ESQUECER DE REMOVER
-
 int	main(int argc, char *argv[])
 {
-	t_node	*stack_a_head;
-	t_node	*stack_b_head;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
-	if (argc == 1)
+	if (are_there_invalid_arguments(argc, argv))
 		return (1);
-	if (are_the_args_invalid(argc, argv) || are_there_duplicates(argc, argv))
+	stack_a = create_stack_a(argc, argv);
+	stack_b = create_stack_b(stack_a);
+	if (!is_sorted(stack_a))
 	{
-		write(STDERR_FILENO, "Error\n", 7);
-		return (1);
+		if (stack_length(stack_a) == 2)
+			swap_a(stack_a);
+		else if (stack_length(stack_a) == 3)
+			sort_three(stack_a);
+		else if (stack_length(stack_a) <= 20)
+			small_sort(stack_a, stack_b);
+		else
+			radix_sort(stack_a, stack_b);
 	}
-	stack_a_head = create_stack(argc, argv);
-	stack_b_head = malloc(sizeof(t_node));
-	if (stack_b_head == NULL)
-	{
-		free(stack_a_head);
-		exit(EXIT_FAILURE);
-	}
-	stack_b_head->next = NULL;
-	stack_b_head->previous = NULL;
+	free_stack(stack_a);
+	free(stack_b);
 	return (0);
 }
