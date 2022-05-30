@@ -6,13 +6,14 @@
 #    By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 18:59:01 by rlucio-l          #+#    #+#              #
-#    Updated: 2022/05/30 23:21:03 by rlucio-l         ###   ########.fr        #
+#    Updated: 2022/05/31 00:21:07 by rlucio-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	push_swap
 
 SRC =	create_stack.c \
+		free_stack.c \
 		is_sorted.c \
 		main.c \
 		parse_arguments.c \
