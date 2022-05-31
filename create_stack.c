@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:57:56 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/05/30 17:08:53 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/05/31 21:39:09 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_node	*create_stack_b(t_node *stack_a)
 	stack_b = malloc(sizeof(t_node));
 	if (stack_b == NULL)
 	{
-		free(stack_a);
+		free_stack(stack_a);
 		exit(EXIT_FAILURE);
 	}
 	stack_b->next = NULL;
